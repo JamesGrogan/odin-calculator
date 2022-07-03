@@ -36,11 +36,10 @@ function operate(a, b, operand) {
     }
 }
 
-//TODO: Change so this is only attached to number buttons
-buttons = document.querySelectorAll("button");
-for (let i = 0; i < buttons.length; i ++) {
-    buttons[i].addEventListener("click", () => {
-        updateDisplay(buttons[i].innerText);
+numberButtons = document.querySelectorAll(".number-button");
+for (let i = 0; i < numberButtons.length; i ++) {
+    numberButtons[i].addEventListener("click", () => {
+        updateDisplay(numberButtons[i].innerText);
     })
 }
 
