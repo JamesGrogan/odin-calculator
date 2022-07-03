@@ -40,7 +40,7 @@ function operate(a, b, operand) {
             return(add(a,b));
         case "-":
             return(subtract(a,b));
-        case "*":
+        case "X":
             return(multiply(a,b));
         case "/":
             return(divide(a,b));
@@ -55,14 +55,27 @@ for (let i = 0; i < numberButtons.length; i ++) {
 }
 
 clearDisplayButton = document.querySelector("#clear-button")
-clearDisplayButton.addEventListener("click", clearDisplay);
+clearDisplayButton.addEventListener("click", () => {
+    clearDisplay();
+    resetDisplayValue();
+});
 
 operatorButtons = document.querySelectorAll(".operator");
 for (let i = 0; i <operatorButtons.length; i++) {
     operatorButtons[i].addEventListener("click", () => {
         currentOperator = operatorButtons[i].innerText;
-        value1 = displayValue;
+        value1 = Number(displayValue);
         clearDisplay();
         resetDisplayValue();
     })
 }
+
+equalsButton = document.querySelector("#equals-button");
+equalsButton.addEventListener("click", () => {
+    value2 = Number(displayValue);
+    displayValue = operate(value1, value2, currentOperator);
+    display.innerText = displayValue;
+    resetDisplayValue();
+})
+
+//TODO: Make it so that the display resets on clicking a new number after equals
