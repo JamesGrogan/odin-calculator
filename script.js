@@ -54,6 +54,15 @@ for (let i = 0; i < numberButtons.length; i ++) {
     })
 }
 
+decimalButton = document.querySelector("#decimal-button");
+decimalButton.addEventListener("click", () => {
+    if (displayValue.includes(".")) {
+        return;
+    } else {
+        updateDisplay(decimalButton.innerText);
+    }
+})
+
 clearDisplayButton = document.querySelector("#clear-button")
 clearDisplayButton.addEventListener("click", () => {
     clearDisplay();
@@ -79,3 +88,5 @@ equalsButton.addEventListener("click", () => {
 })
 
 //TODO: Make it so that the display resets on clicking a new number after equals
+//TODO: Make it so users can string multiple operands together
+    // possibly do this by checking if user has added 2 or more operators and evaluation?
